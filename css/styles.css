@@ -23,44 +23,45 @@ body {
 h1 {
     font-size: 3.6rem;
     font-weight: 700;
-    margin: 2rem 0;
+    margin: 2rem 0 1rem 0;
     color: #354D73;
 }
 
 h2 {
     font-size: 2.8rem;
     font-weight: 600;
-    margin: 2rem 0;
+    margin: 2rem 0 1rem 0;
     color:#354D73
 }
 
 h3 {
     font-size: 2.4rem;
     font-weight: 600;
-    margin: 2rem 0;
+    margin: 2rem 0 1rem 0;
     color:#354D73;
 }
 
 h4 {
     font-size: 2rem;
     font-weight: 600;
-    margin: 2rem 0;
+    margin: 2rem 0 1rem 0;
 }
 
 h5 {
     font-size: 1.8rem;
     font-weight: 600;
-    margin: 2rem 0;
+    margin: 2rem 0 1rem 0;
 }
 
 h6 {
     font-size: 1.6rem;
     font-weight: 600;
-    margin: 2rem 0;
+    margin: 2rem 0 1rem 0;
 }
 
 p {
     padding: 1rem 0;
+    max-width: 75ch;
 }
 
 /* Container för innehållet */
@@ -117,19 +118,43 @@ header nav ul li a:hover,
 
 /* Hero-sektionen */
 .hero {
-    background: url('../img/hero.jpg') no-repeat center center/cover;
+    position: relative;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
     color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Videon som bakgrund */
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Overlay för bilder */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 .big-logo {
-    max-width: 1200px;
+    max-width: 800px;
     padding: 0 1rem;
+    z-index: 2;
 }
 
 .hero p {
@@ -138,6 +163,7 @@ header nav ul li a:hover,
     margin: 2rem auto;
     padding: 0 1rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    z-index: 2;
 }
 
 .hero i {
@@ -154,6 +180,7 @@ header nav ul li a:hover,
     cursor: pointer;
     animation: bounce 1.5s infinite;
     transition: opacity 0.3s;
+    z-index: 2;
 }
 
 .scroll-down i {
@@ -197,12 +224,14 @@ header nav ul li a:hover,
 .bg-btn {
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
     margin: 2rem 1rem;
+    z-index: 2;
 }
 
 /* Bilder */
 img {
     width: 100%;
     max-width: 100%;
+    height: auto;
 }
 
 /* Hamburgerknappen */
@@ -328,6 +357,87 @@ img {
     .desktop-nav {
         display: none;
     }
+}
+
+/* Startsida */
+.intro {
+    text-align: center;
+    margin: auto;
+}
+
+/* Divider mellan element */
+.divider {
+    width: 80%;
+    height: 3px;
+    background-color: #F4D35E;
+    margin: 5rem auto;
+}
+
+/* Container för kort */
+.intro-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.intro-header p {
+    margin: auto;
+}
+
+/* Kort */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    max-height: 300px;
+}
+
+.card p {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+/* Knappar i kort */
+.card-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.btn-blue {
+    background-color: #354D73;
+    color: white;
+    width: 50%;
+}
+
+.btn-blue:hover {
+    background-color: #2b3d5c;
+}
+
+.btn-green {
+    background-color: #3F7D59;
+    color: white;
+    width: 50%;
+}
+
+.btn-green:hover {
+    background-color: #2F5B43;
 }
 
 /* Footer */
