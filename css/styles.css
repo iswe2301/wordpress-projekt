@@ -1,0 +1,326 @@
+/* Grundläggande styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', Helvetica, sans-serif;
+    font-size: 1.6rem;
+    color: #5A5A5A;
+    line-height: 1.6;
+    letter-spacing: 2px;
+    background-color: #F3F3F3;
+}
+
+/* Rubriker */
+h1 {
+    font-size: 3.6rem;
+    font-weight: 700;
+    margin: 2rem 0;
+    color: #354D73;
+}
+
+h2 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin: 2rem 0;
+    color:#354D73
+}
+
+h3 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin: 2rem 0;
+    color:#354D73;
+}
+
+h4 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 2rem 0;
+}
+
+h5 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 2rem 0;
+}
+
+h6 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 2rem 0;
+}
+
+/* Container för innehållet */
+.container {
+    display: flex;
+    max-width: 1200px;
+    height: auto;
+    margin: 3rem auto;
+    padding: 1rem;
+}
+
+/* Header och navigering */
+header .logo img {
+    width: 100%;
+    max-height: 40px;
+}
+
+.header-container {
+    background-color: #354D73;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+header nav ul li {
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: color 0.3s;
+    padding: 1rem;
+}
+
+header nav ul li a.active,
+header nav ul li a:hover,
+.current {
+    color: #F4D35E;
+}
+
+/* Hero-sektionen */
+.hero {
+    background: url('../img/hero.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.big-logo {
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
+.hero p {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.hero i {
+    margin-left: 0.5rem;
+}
+
+/* Scroll-pil */
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3.5rem;
+    cursor: pointer;
+    animation: bounce 1.5s infinite;
+    transition: opacity 0.3s;
+}
+
+.scroll-down i {
+    color: #ffffff;
+}
+
+.scroll-down:hover {
+    opacity: 0.7;
+}
+
+/* Animation för pilen */
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(15px);
+    }
+}
+
+/* Knappar */
+.btn {
+    background-color: #354D73;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #468B63;
+}
+
+.bg-btn {
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+    margin: 2rem 1rem;
+}
+
+/* Bilder */
+img {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Hamburgerknappen */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    z-index: 200;
+    position: fixed;
+    top: 1.8rem;
+    right: 1.2rem;
+}
+
+/* Hamburgerikonen */
+.hamburger-menu .bar {
+    width: 30px;
+    height: 4px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* Ändra hamburgersymbolen när menyn är öppen till X */
+.hamburger-menu.open .bar:nth-child(1) {
+    transform: rotate(45deg) translateY(12.5px);
+}
+
+.hamburger-menu.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translateY(-12.5px);
+}
+
+/* Mobilmeny */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    background-color: #354D73;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 99;
+}
+
+.mobile-menu.open {
+    transform: translateY(0);
+}
+
+.mobile-menu ul li {
+    margin: 1rem 0;
+}
+
+.mobile-menu ul li a {
+    font-size: 2rem;
+}
+
+/* Overlay för mobilmenyn */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.mobile-menu-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsivitet för header, max 1024px*/
+@media (max-width: 1024px) {
+    .desktop-nav {
+        margin: 1rem 0;
+        border-top: 2px solid #F4D35E;
+        padding-top: 1rem;
+    }
+
+    .header-container {
+        flex-direction: column;
+    }
+}
+
+/* Responsivitet för header, max 768px*/
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-container {
+        align-items: flex-start;
+    }
+
+    .hero p {
+        font-size: 1.6rem;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+}
