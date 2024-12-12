@@ -79,6 +79,10 @@ header .logo img {
     max-height: 40px;
 }
 
+header .logo a {
+    color: white;
+}
+
 .header-container {
     background-color: #354D73;
     display: flex;
@@ -127,6 +131,7 @@ header nav ul li a:hover,
     color: white;
     text-align: center;
     overflow: hidden;
+    background-color: #5A5A5A;
 }
 
 /* Videon som bakgrund */
@@ -137,7 +142,7 @@ header nav ul li a:hover,
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
+    z-index: 0;
 }
 
 /* Overlay för bilder */
@@ -149,6 +154,41 @@ header nav ul li a:hover,
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
+    pointer-events: none;
+}
+
+/* Video-kontroller */
+.video-control {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 1.5rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.video-control:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.fa-pause {
+    margin-left: 0 !important;
+}
+
+.fa-play {
+    margin-left: 0.2rem !important;
 }
 
 .big-logo {
@@ -219,6 +259,7 @@ header nav ul li a:hover,
 .btn:hover {
     background-color: #468B63;
     transform: scale(1.02);
+    color: #F4D35E;
 }
 
 .bg-btn {
@@ -492,6 +533,7 @@ img {
 
 .btn-pink:hover {
     background-color: #AEE0F4;
+    color: #354D73;
 }
 
 /* Puff-sektion */
@@ -604,7 +646,7 @@ footer {
 
 .footer-section ul li a {
     text-decoration: none;
-    color: #F4D35E;
+    color: #fff;
     font-size: 1.4rem;
     transition: color 0.3s;
 }

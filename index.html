@@ -24,8 +24,9 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <a href="index.html" aria-label="Gå till startsidan">
+                <a href="/" aria-label="Gå till startsidan">
                     <img src="img/small_logo_AA.svg" alt="AurorAdventures logotyp">
+                </a>
             </div>
             <!-- Desktop navigation -->
             <nav class="desktop-nav">
@@ -68,11 +69,17 @@
                 <source src="img/hero.mp4" type="video/mp4">
                 Din webbläsare stöder inte videouppspelning.
             </video>
-            <img class="big-logo" src="img/big_logo_AA.png" alt="AurorAdventures logotyp">
+            <!-- Play/Pause-knapp -->
+            <button id="video-control" class="video-control" aria-label="Pausa video">
+                <i class="fas fa-pause"></i>
+            </button>
+            <img class="big-logo" src="img/big_logo_AA.png" alt="Logotyp för AurorAdventures">
             <p>Oförglömliga upplevelser i en arktisk miljö</p>
             <a href="#" class="btn bg-btn">BOKA DITT ÄVENTYR <i class="fas fa-arrow-right"></i></a>
             <div class="scroll-down">
-                <a href="#intro"><i class="fas fa-chevron-down"></i></a>
+                <a href="#intro" aria-label="Scrolla ner för att läsa mer">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
             </div>
         </div>
     </header>
@@ -188,7 +195,7 @@
             </div>
         </div>
         <div class="footer-search">
-            <input type="search" placeholder="Sök...">
+            <input type="search" placeholder="Sök..." aria-label="Skriv in sökord">
             <button aria-label="Sök"><i class="fas fa-search"></i></button>
         </div>
         <div class="footer-social">

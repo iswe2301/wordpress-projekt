@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburgerMenu = document.querySelector(".hamburger-menu");
     const mobileMenu = document.querySelector(".mobile-menu");
     const overlay = document.querySelector(".mobile-menu-overlay");
+    const video = document.querySelector(".hero-video");
+    const videoControl = document.querySelector("#video-control");
+    const icon = videoControl.querySelector("i");
 
     // Lägg till eventlyssnare vid klick på hamburgarmenyn
     hamburgerMenu.addEventListener("click", () => {
@@ -35,4 +38,24 @@ document.addEventListener('DOMContentLoaded', () => {
             hamburgerMenu.classList.remove("open");
         });
     });
+
+    // Kontrollera om videoelementet finns
+    if (videoControl) {
+        // Lägg till eventlyssnare vid klick på play/pause-knappen
+        videoControl.addEventListener("click", () => {
+            // Om videon är pausad, spela upp videon, byt ikon till paus-ikonen och ändra aria-label
+            if (video.paused) {
+                video.play();
+                icon.classList.remove("fa-play");
+                icon.classList.add("fa-pause");
+                video.setAttribute("aria-label", "Pausa video");
+                // Annars pausa videon, byt ikon till play-ikonen och ändra aria-label
+            } else {
+                video.pause();
+                icon.classList.remove("fa-pause");
+                icon.classList.add("fa-play");
+                video.setAttribute("aria-label", "Spela video");
+            }
+        });
+    }
 });
