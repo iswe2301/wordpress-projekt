@@ -133,6 +133,24 @@ header .logo a {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* Puff i headern */
+.header-puff {
+    background-color: #FFD700;
+    color: #354D73;
+    text-align: center;
+    padding: 0 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 11;
+}
+
+.header-puff p {
+    margin: auto;
+}
+
 header nav ul {
     display: flex;
     justify-content: center;

@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.querySelector(".mobile-menu-overlay");
     const video = document.querySelector(".hero-video");
     const videoControl = document.querySelector("#video-control");
+    const headerPuff = document.getElementById("header-puff");
+    const headerContainer = document.querySelector(".header-container");
 
     // Lägg till eventlyssnare vid klick på hamburgarmenyn
     hamburgerMenu.addEventListener("click", () => {
@@ -60,5 +62,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 video.setAttribute("aria-label", "Spela video");
             }
         });
+
+        // Justera navigationens position
+        if (headerPuff) {
+            const puffHeight = headerPuff.offsetHeight; // Hämta höjden på puffen
+            headerContainer.style.top = `${puffHeight}px`; // Flytta ner header-container
+
+            // Flytta ner mobilmeny-symbolen
+            if (hamburgerMenu) {
+                const originalTop = parseFloat(getComputedStyle(hamburgerMenu).top); // Hämta nuvarande värdet på toppositionen
+                const newTop = puffHeight + originalTop; // Lägg till puffens höjd
+                hamburgerMenu.style.top = `${newTop}px`;
+            }
+        } else {
+            // Om puffen inte finns, återställ till standardvärden
+            headerContainer.style.top = "0"
+
+            // Kontrollera om hamburgermenyn finns
+            if (hamburgerMenu) {
+                hamburgerMenu.style.top = "1.8rem"; // Återställ till standardvärde
+            }
+        }
     }
 });
