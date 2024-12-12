@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.querySelector(".mobile-menu-overlay");
     const video = document.querySelector(".hero-video");
     const videoControl = document.querySelector("#video-control");
-    const icon = videoControl.querySelector("i");
 
     // Lägg till eventlyssnare vid klick på hamburgarmenyn
     hamburgerMenu.addEventListener("click", () => {
@@ -41,6 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Kontrollera om videoelementet finns
     if (videoControl) {
+
+        // Hämta ikonen i knappen
+        const icon = videoControl.querySelector("i");
+
         // Lägg till eventlyssnare vid klick på play/pause-knappen
         videoControl.addEventListener("click", () => {
             // Om videon är pausad, spela upp videon, byt ikon till paus-ikonen och ändra aria-label
