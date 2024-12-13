@@ -97,6 +97,42 @@ if (is_active_sidebar("front-page-puff")) { ?>
 <!-- Divider för att skilja sektioner -->
 <div class="divider"></div>
 
+<!-- News Section -->
+<section class="news">
+    <?php
+    // Skapa en array med argument för att hämta inlägg
+    $args = array(
+        "category_name" => "nyheter", // Kategorins slug
+        "posts_per_page" => 1 // Hämta ett inlägg
+    );
+    // Skapa en ny query med argumenten
+    $news_query = new WP_Query($args);
+    // Kontrollera om det finns innehåll, loopa igenom och skriv ut
+    if ($news_query->have_posts()) {
+        while ($news_query->have_posts()) {
+            $news_query->the_post();
+    ?>
+            <div class="news-card">
+                <!-- Kontrollera om det finns en utvald bild och visa isåfall -->
+                <?php if (has_post_thumbnail()) { ?>
+                    <?php the_post_thumbnail(); ?>
+                <?php } ?>
+                <div class="news-content">
+                    <h2>Senaste nytt</h2>
+                    <!-- Skriv ut titel och excerpt -->
+                    <h3><?php the_title(); ?></h3>
+                    <?php the_excerpt(); ?>
+                    <!-- Länka till inlägget -->
+                    <a href="<?php the_permalink(); ?>" class="btn btn-green">Läs mer</a>
+                </div>
+            </div>
+    <?php
+        }
+        wp_reset_postdata(); // Återställ postdata
+    }
+    ?>
+</section>
+
 <?php
 // Hämta footer
 get_footer();
