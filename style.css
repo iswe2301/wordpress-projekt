@@ -1,0 +1,15 @@
+/*
+Theme Name: AurorAdventures
+Theme URI: https://www.isawestling.se/auroradventures
+Author: Isa Westling
+Author URI: https://www.isawestling.se
+Description: Ett WordPress-tema för AurorAdventures.
+Version: 1.0
+License: 
+License URI:
+Text Domain: auroradventures
+Tags: aurora, borealis, northern lights, adventures, hiking, trekking, camping, nature, wildlife, photography, travel, exploration, discovery, wilderness, arctic, scandinavia, nordic, outdoor, adventure, experience, journey, expedition, trip, tour, vacation, holiday, getaway, escape
+*/
+
+/* Importera CSS-fil */
+@import url("css/styles.css");
