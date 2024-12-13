@@ -9,3 +9,6 @@ function register_my_menus()
         "main-nav" => "Huvudmeny"
     ));
 }
+
+// Aktivera stöd för utvalda bilder
+add_theme_support("post-thumbnails");
