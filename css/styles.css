@@ -114,6 +114,7 @@ a:hover {
 header .logo img {
     width: 100%;
     max-height: 40px;
+    padding: 0.5rem 0 0 1rem;
 }
 
 header .logo a {
@@ -125,12 +126,17 @@ header .logo a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
     position: fixed;
     width: 100%;
     z-index: 10;
-    top: 0;
+    top: var(--header-top, 50px); /* Används för att flytta upp header när puffen döljs */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: top 0.3s ease; /* Animerar header när den flyttas */
+}
+
+/* Flytta upp header när puffen döljs */
+.header-container.no-puff {
+    top: 0;
 }
 
 /* Puff i headern */
@@ -138,17 +144,26 @@ header .logo a {
     background-color: #FFD700;
     color: #354D73;
     text-align: center;
-    padding: 0 1rem;
     font-size: 1.2rem;
     font-weight: bold;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 11;
+    overflow: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Animerar puffen */
 }
 
-.header-puff p {
-    margin: auto;
+/* Dölj puffen när den inte visas */
+.header-puff.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+#animated-text {
+    margin: 0;
+    white-space: nowrap;
+    will-change: transform; /* Förbereder för animation */
 }
 
 header nav ul {
@@ -356,7 +371,7 @@ img {
     padding: 0.5rem;
     z-index: 200;
     position: fixed;
-    top: 1.8rem;
+    top: 0.8rem;
     right: 1.2rem;
 }
 
