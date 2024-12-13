@@ -62,6 +62,27 @@ get_header();
 </section>
 
 <?php
+// Hämta sidan Om oss
+$about_page = get_page_by_path("om-oss");
+// Kontrollera om sidan finns
+if ($about_page) {
+    // Hämta innehållet från sidan
+    $content = $about_page->post_content;
+    $first_sentence = strtok($content, "."); // Hämta första meningen från innehållet
+}
+?>
+
+<!-- Om oss sektion -->
+<div class="about">
+    <!-- Kontrollera om sidan Om oss finns och skriv ut innehåll -->
+    <?php if ($about_page) { ?>
+        <!-- Skriv ut dynamisk länk och första meningen från innehållet -->
+        <a class="btn btn-pink" href="<?= get_permalink($about_page->ID); ?>">Om AurorAdventures</a>
+        <?= $first_sentence; ?>.
+    <?php } ?>
+</div>
+
+<?php
 // Hämta footer
 get_footer();
 ?>
