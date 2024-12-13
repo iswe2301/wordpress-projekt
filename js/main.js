@@ -63,24 +63,89 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Justera navigationens position
-        if (headerPuff) {
+        // Kontrollera om header-puffen och header-container finns
+        if (headerPuff && headerContainer) {
             const puffHeight = headerPuff.offsetHeight; // Hämta höjden på puffen
-            headerContainer.style.top = `${puffHeight}px`; // Flytta ner header-container
+            headerContainer.style.top = `${puffHeight}px`; // Flytta ner header-container med puffens höjd
 
-            // Flytta ner mobilmeny-symbolen
+            let originalTop = 0; // Sätt ursprungspositionen till 0 för toppositionen
+
+            // Kontrollera om hamburgermenyn finns
             if (hamburgerMenu) {
-                const originalTop = parseFloat(getComputedStyle(hamburgerMenu).top); // Hämta nuvarande värdet på toppositionen
-                const newTop = puffHeight + originalTop; // Lägg till puffens höjd
-                hamburgerMenu.style.top = `${newTop}px`;
+                originalTop = parseFloat(getComputedStyle(hamburgerMenu).top); // Hämta nuvarande värdet på toppositionen
+                hamburgerMenu.style.top = `${originalTop + puffHeight}px`; // Flytta ner hamburgermenyn med puffens höjd
             }
+
+            // Skapa en animation för texten i puffen
+            const animatedText = document.getElementById("animated-text"); // Hämta elementet som ska animeras
+            const textWidth = animatedText.offsetWidth; // Textens bredd
+            const viewportWidth = window.innerWidth; // Skärmens bredd
+            const totalDistance = textWidth + viewportWidth; // Totalt avstånd som texten ska röra sig
+            const speed = 100; // Hastighet i px per sekund 
+            const duration = totalDistance / speed; // Varaktighet i sekunder
+
+            // Skapa animationen och lägg till den i stylesheeten på elementet
+            const styleSheet = document.styleSheets[0]; // Hämta stylesheeten
+            // Lägg till en ny regel för keyframes
+            styleSheet.insertRule(`
+                @keyframes slide-in-out {
+                    0% {
+                        transform: translateX(${viewportWidth}px);
+                    }
+                    100% {
+                        transform: translateX(-${textWidth}px);
+                    }
+                }
+            `, styleSheet.cssRules.length);
+
+            animatedText.style.animation = `slide-in-out ${duration}s linear infinite`;
+
+            // Funktion för att uppdatera positionen på header-container
+            const updateHeaderPosition = () => {
+                const puffHeight = headerPuff.offsetHeight; // Hämta höjden på puffen
+                headerContainer.style.top = `${puffHeight}px`; // Flytta ner header-container med puffens höjd
+
+                // Kontrollera om hamburgermenyn finns och flytta ner den
+                if (hamburgerMenu) {
+                    hamburgerMenu.style.top = `${puffHeight + originalTop}px`;
+                }
+            };
+
+            // Lägg till eventlyssnare vid scroll
+            window.addEventListener("scroll", () => {
+
+                // Hämta aktuell scrollposition
+                const currentScrollPosition = window.scrollY;
+
+                // Kontrollera om skrollningen har passerat 100px
+                if (currentScrollPosition > 100) {
+                    // Kontrollera om puffen är synlig och dölj den isåfall
+                    if (!headerPuff.classList.contains("hidden")) {
+                        headerPuff.classList.add("hidden");
+                        headerContainer.classList.add("no-puff"); // Flytta upp header-container
+                        headerContainer.style.top = "0";
+                        // Kontrollera om hamburgermenyn finns och flytta upp den
+                        if (hamburgerMenu) {
+                            hamburgerMenu.style.top = "0.8rem";
+                        }
+                    }
+                    // Annars om skrollningen är mindre än 100px och puffen är dold, visa puffen
+                } else {
+                    if (headerPuff.classList.contains("hidden")) {
+                        headerPuff.classList.remove("hidden");
+                        headerContainer.classList.remove("no-puff");
+                        updateHeaderPosition(); // Anropa funktionen för att uppdatera positionen
+                    }
+                }
+            });
+
         } else {
             // Om puffen inte finns, återställ till standardvärden
             headerContainer.style.top = "0"
 
             // Kontrollera om hamburgermenyn finns
             if (hamburgerMenu) {
-                hamburgerMenu.style.top = "1.8rem"; // Återställ till standardvärde
+                hamburgerMenu.style.top = "0.8rem"; // Återställ till standardvärde
             }
         }
     }
