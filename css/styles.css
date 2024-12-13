@@ -110,6 +110,16 @@ a:hover {
     margin: 3rem auto;
 }
 
+.single-content {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 2rem;
+}
+
+.single-content p {
+    margin: 0 auto;
+}
+
 /* Header och navigering */
 header .logo img {
     width: 100%;
@@ -129,9 +139,11 @@ header .logo a {
     position: fixed;
     width: 100%;
     z-index: 10;
-    top: var(--header-top, 50px); /* Används för att flytta upp header när puffen döljs */
+    top: var(--header-top, 50px);
+    /* Används för att flytta upp header när puffen döljs */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: top 0.3s ease; /* Animerar header när den flyttas */
+    transition: top 0.3s ease;
+    /* Animerar header när den flyttas */
 }
 
 /* Flytta upp header när puffen döljs */
@@ -151,7 +163,8 @@ header .logo a {
     width: 100%;
     z-index: 11;
     overflow: hidden;
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Animerar puffen */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    /* Animerar puffen */
 }
 
 /* Dölj puffen när den inte visas */
@@ -163,7 +176,8 @@ header .logo a {
 #animated-text {
     margin: 0;
     white-space: nowrap;
-    will-change: transform; /* Förbereder för animation */
+    will-change: transform;
+    /* Förbereder för animation */
 }
 
 header nav ul {
@@ -997,12 +1011,18 @@ footer {
     align-items: center;
 }
 
+.footer-search form {
+    display: flex;
+}
+
 .footer-search input {
     padding-left: 2rem;
     border: none;
     border-radius: 20px 0 0 20px;
     font-size: 1.5rem;
     height: 4rem;
+    transform: translateX(+1px);
+    /* Flytta input 1px för att matcha knappen */
 }
 
 .footer-search input:focus {
@@ -1010,7 +1030,7 @@ footer {
 }
 
 .footer-search button {
-    padding-right: 2rem;
+    padding: 0 2rem 0 1rem;
     background-color: white;
     border: none;
     border-radius: 0 20px 20px 0;
