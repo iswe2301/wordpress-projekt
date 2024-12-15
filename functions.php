@@ -22,7 +22,7 @@ function aurora_widget_init()
     register_sidebar(array(
         "name"          => "Puff på startsidan",
         "id"            => "front-page-puff",
-        "before_widget" => "<div class='widget'>",
+        "before_widget" => "<div class='highlight-content'>",
         "after_widget"  => "</div>",
         "before_title"  => "<h3>",
         "after_title"   => "</h3>",
@@ -42,7 +42,7 @@ function aurora_widget_init()
     register_sidebar(array(
         "name"          => "Puff i sidebar",
         "id"            => "sidebar-puff",
-        "before_widget" => "<div class='widget'>",
+        "before_widget" => "<div class='sidebar-puff'>",
         "after_widget"  => "</div>",
         "before_title"  => "<h3>",
         "after_title"   => "</h3>",
