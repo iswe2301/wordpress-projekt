@@ -136,9 +136,15 @@ ul li {
     padding: 1rem 0;
 }
 
+.meta {
+    font-size: 1.4rem;
+    color: #5A5A5A;
+    margin: 0 !important
+}
+
 .single-content-img {
     max-width: 1200px;
-    margin: 1rem auto;
+    margin: 2rem auto 0 auto;
 }
 
 /* Header och navigering */
