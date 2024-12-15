@@ -3,15 +3,19 @@
 <div class="page-layout">
     <!-- Huvudinnehåll -->
     <div class="main-content">
-        <?php
-        // Hämta statiska sidan "Upplevelser" baserat på slug
-        $upplevelser_page = get_page_by_path("upplevelser");
-        if ($upplevelser_page) {
-            // Skriv ut titel och innehåll från sidan
-            echo "<h2>" . $upplevelser_page->post_title . "</h2>";
-            echo apply_filters("the_content", $upplevelser_page->post_content);
-        }
-        ?>
+        <section class="intro">
+            <?php
+            // Hämta statiska sidan "Upplevelser" baserat på slug
+            $upplevelser_page = get_page_by_path("upplevelser");
+            if ($upplevelser_page) {
+                // Skriv ut titel och innehåll från sidan
+                echo "<h2>" . $upplevelser_page->post_title . "</h2>";
+                echo apply_filters("the_content", $upplevelser_page->post_content);
+            }
+            ?>
+            <!-- Skiljelinje mellan inlägg -->
+            <div class="divider"></div>
+        </section>
 
         <?php
         // Kontrollera om det finns inlägg i kategorin och loopa igenom dem
@@ -29,7 +33,7 @@
                         <!-- Skriv ut dynamisk titel -->
                         <h3><?php the_title(); ?></h3>
                         <!-- Skriv ut excerpt -->
-                        <p><?php the_excerpt(); ?></p>
+                        <?php the_content(); ?>
                         <div class="content-button">
                             <!-- Länk till inlägget -->
                             <a href="<?php the_permalink(); ?>" class="btn">Boka nu</a>
