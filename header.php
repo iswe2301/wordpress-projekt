@@ -120,8 +120,17 @@
                 <!-- Bild för andra sidor -->
                 <img class="hero-image" src="<?= get_header_image(); ?>">
 
-                <!-- Rubrik för andra sidor -->
-                <?php if (is_page()): ?>
+                <?php
+                // Hämta titel från custom field om det finns
+                $hero_title = get_post_meta(get_the_ID(), "hero_title", true);
+                ?>
+
+                <?php if ($hero_title): ?>
+                    <!-- Visa custom hero titel om det finns -->
+                    <h1><?php echo $hero_title; ?></h1>
+
+                    <!-- Rubrik för andra sidor -->
+                <?php elseif (is_page()): ?>
                     <!-- Visa sidans titel om det är en huvudsida -->
                     <h1><?php echo get_the_title(); ?></h1>
 
