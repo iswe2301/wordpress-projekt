@@ -96,8 +96,8 @@
                     </button>
                 <?php endif; ?>
 
-                <!-- Slogan för startsidan -->
-                <p>Oförglömliga upplevelser i en arktisk miljö</p>
+                <!-- Dynamisk slogan för startsidan -->
+                <p><?= esc_html(get_theme_mod("hero_text", "Oförglömliga upplevelser i en arktisk miljö")); ?></p>
 
                 <!-- Knapp med länk till upplevelsesidan -->
                 <a href="<?= get_category_link(get_category_by_slug("upplevelser")->term_id); ?>" class="btn bg-btn">BOKA DITT ÄVENTYR <i class="fas fa-arrow-right"></i></a>

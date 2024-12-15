@@ -45,3 +45,26 @@ $args = array(
 
 // Aktivera stöd för dynamisk headerbild
 add_theme_support("custom-header", $args);
+
+// Aktivera stöd för dynamiska texter i WP Customizer
+function theme_customize_register($wp_customize)
+{
+    // Lägg till en inställning för hero-text
+    $wp_customize->add_setting("hero_text", array(
+        "default"           => "Oförglömliga upplevelser i en arktisk miljö", // Standardtext
+        "sanitize_callback" => "sanitize_text_field", // Rensa bort skadlig kod
+    ));
+
+    // Lägg till en kontroll för hero-text i Header Media-sektionen
+    $wp_customize->add_control("hero_text_control", array(
+        "label"    => "Hero Text", // Namn på inställningen
+        "section"  => "header_image", // Sektionen för headerbild
+        "settings" => "hero_text", // Inställning för texten
+        "type"     => "text", // Textfält
+        "active_callback" => "is_front_page", // Visa bara på startsidan
+        "priority" => 1, // Placering i sektionen
+    ));
+}
+
+// Aktivera stöd för dynamiska texter
+add_action("customize_register", "theme_customize_register");
