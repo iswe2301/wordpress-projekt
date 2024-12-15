@@ -68,3 +68,10 @@ function theme_customize_register($wp_customize)
 
 // Aktivera stöd för dynamiska texter
 add_action("customize_register", "theme_customize_register");
+
+// Ta bort kommentarer i admin
+add_action("admin_menu", "remove_menus");
+function remove_menus()
+{
+    remove_menu_page("edit-comments.php");
+}
