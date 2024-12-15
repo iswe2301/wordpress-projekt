@@ -104,11 +104,12 @@ a:hover {
 ul {
     padding-left: 20px;
     margin: 0;
+    padding: 1rem 0;
 }
 
 ul li {
     list-style-type: disc;
-    margin-bottom: 8px;
+    margin-bottom: 1rem;
     list-style-position: inside;
 }
 
@@ -123,7 +124,7 @@ ul li {
 
 /* Styling för single-sidor*/
 .single-content {
-    max-width: 1200px;
+    max-width: 75ch;
     margin: auto;
     padding: 0 2rem;
 }
