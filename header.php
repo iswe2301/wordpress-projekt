@@ -72,28 +72,51 @@
         <div class="mobile-menu-overlay"></div>
 
         <!-- Hero -->
-        <div class="hero">
+        <div class="hero <?php echo is_front_page() ? '' : 'small-hero'; ?>">
             <div class="image-overlay"></div>
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="<?= get_template_directory_uri(); ?>/img/hero.mp4" type="video/mp4">
-                Din webbläsare stöder inte videouppspelning.
-            </video>
 
-            <!-- Play/Pause-knapp -->
-            <button id="video-control" class="video-control" aria-label="Pausa video">
-                <i class="fas fa-pause"></i>
-            </button>
-
+            <!-- Logotyp för startsidan -->
             <img class="big-logo" src="<?= get_template_directory_uri(); ?>/img/big_logo_AA.png" alt="Logotyp för AurorAdventures">
-            <p>Oförglömliga upplevelser i en arktisk miljö</p>
-            <!-- Länk till upplevelsesidan -->
-            <a href="<?= get_category_link(get_category_by_slug("upplevelser")->term_id); ?>" class="btn bg-btn">BOKA DITT ÄVENTYR <i class="fas fa-arrow-right"></i></a>
 
-            <div class="scroll-down">
-                <a href="#intro" aria-label="Scrolla ner för att läsa mer">
-                    <i class="fas fa-chevron-down"></i>
-                </a>
-            </div>
+            <!-- Kontroll om startsida -->
+            <?php if (is_front_page()): ?>
+
+                <!-- Kontroll om video finns -->
+                <?php if (has_header_video()): ?>
+
+                    <!-- Video för startsidan -->
+                    <video class="hero-video" autoplay muted loop playsinline>
+                        <source src="<?= get_header_video_url(); ?>" type="video/mp4">
+                        Din webbläsare stöder inte videouppspelning.
+                    </video>
+
+                    <!-- Play/Pause-knapp för videon -->
+                    <button id="video-control" class="video-control" aria-label="Pausa video">
+                        <i class="fas fa-pause"></i>
+                    </button>
+                <?php endif; ?>
+
+                <!-- Slogan för startsidan -->
+                <p>Oförglömliga upplevelser i en arktisk miljö</p>
+
+                <!-- Knapp med länk till upplevelsesidan -->
+                <a href="<?= get_category_link(get_category_by_slug("upplevelser")->term_id); ?>" class="btn bg-btn">BOKA DITT ÄVENTYR <i class="fas fa-arrow-right"></i></a>
+
+                <!-- Scrolla ner-knapp -->
+                <div class="scroll-down">
+                    <a href="#intro" aria-label="Scrolla ner för att läsa mer">
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                </div>
+
+                <!-- Kontroll om headerbild finns -->
+            <?php elseif (has_header_image()): ?>
+                <!-- Bild för andra sidor -->
+                <img class="hero-image" src="<?= get_header_image(); ?>">
+                <!-- Rubrik för andra sidor -->
+                <h1><?php the_title(); ?></h1>
+            <?php endif; ?>
+
         </div>
     </header>
 
