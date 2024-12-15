@@ -115,10 +115,34 @@
                     </a>
                 </div>
 
-                <!-- Kontroll om headerbild finns -->
-            <?php elseif (has_header_image()): ?>
-                <!-- Bild för andra sidor -->
-                <img class="hero-image" src="<?= get_header_image(); ?>">
+            <?php else: ?>
+
+                <?php
+                // Hämta ID för aktuell sida/kategori
+                $id = get_the_ID();
+
+                // Kontrollera om sidan är en kategori och hämta matchande statisk sida
+                if (is_category()) {
+                    // Hämta kategorins slug
+                    $category_slug = get_query_var("category_name");
+
+                    // Hämta statisk sida med samma slug
+                    $page = get_page_by_path($category_slug);
+
+                    // Om en sådan sida finns, använd dess ID istället
+                    if ($page) {
+                        $id = $page->ID;
+                    }
+                }
+                ?>
+                <!-- Kontrollera om sidan har en utvald bild eller custom header-bild -->
+                <?php if (has_post_thumbnail($id)): ?>
+                    <!-- Utvald bild används som header-bild -->
+                    <img class="hero-image" src="<?= get_the_post_thumbnail_url($id); ?>">
+                <?php elseif (has_header_image()): ?>
+                    <!-- Använd custom header-bild som fallback -->
+                    <img class="hero-image" src="<?= get_header_image(); ?>">
+                <?php endif; ?>
 
                 <?php
                 // Hämta titel från custom field om det finns
@@ -145,6 +169,11 @@
                 <?php elseif (is_search()): ?>
                     <!-- Visa sökresultatrubriken -->
                     <h1>Sökresultat för: "<?php echo get_search_query(); ?>"</h1>
+
+                    <!-- Standardrubrik för andra sidor -->
+                <?php else: ?>
+                    <h1><?php echo get_the_title(); ?></h1>
+
                 <?php endif; ?>
 
             <?php endif; ?>
