@@ -99,10 +99,8 @@ if ($about_page) {
 // Kontrollera om widget-området finns och skriv ut innehåll
 if (is_active_sidebar("front-page-puff")) { ?>
     <section class="highlight">
-        <div class="highlight-content">
             <!-- Hämta widget -->
             <?php dynamic_sidebar("front-page-puff"); ?>
-        </div>
     </section>
 <?php } ?>
 
