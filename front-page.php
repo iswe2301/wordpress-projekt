@@ -37,19 +37,31 @@ get_header();
         if ($page_query->have_posts()) {
             while ($page_query->have_posts()) {
                 $page_query->the_post();
+
+                // Hämta anpassat fält för hero-titel
+                $hero_title = get_post_meta(get_the_ID(), "hero_title", true);
+
+                // Fallback till sidans titel om anpassat fält saknas
+                $display_title = $hero_title ? $hero_title : get_the_title();
+
+                // Hämta länk till kategorin baserat på postnamn
+                $slug = get_post_field("post_name", get_the_ID()); // Hämta postnamn
+                $category = get_category_by_slug($slug); // Hämta kategori baserat på postnamn
+                $category_link = get_category_link($category->term_id); // Hämta länk till kategorin
         ?>
                 <div class="card">
                     <!-- Kontrollera om det finns en utvald bild och visa isåfall -->
                     <?php if (has_post_thumbnail()) { ?>
                         <?php the_post_thumbnail(); ?>
                     <?php } ?>
-                    <!-- Skriv ut titel och excerpt -->
-                    <h2><?php the_title(); ?></h2>
+                    <!-- Skriv ut dynamisk hero-titel -->
+                    <h2><?php echo $display_title; ?></h2>
+                    <!-- Skriv ut excerpt -->
                     <?php the_excerpt(); ?>
                     <div class="card-buttons">
-                        <!-- Länka till sidan -->
-                        <a href="<?php the_permalink(); ?>" class="btn btn-blue">Boka nu</a>
-                        <a href="<?php the_permalink(); ?>" class="btn btn-green">Läs mer</a>
+                        <!-- Länka till kategorin -->
+                        <a href="<?php echo $category_link; ?>" class="btn btn-blue">Boka nu</a>
+                        <a href="<?php echo $category_link; ?>" class="btn btn-green">Läs mer</a>
                     </div>
                 </div>
         <?php
