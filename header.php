@@ -33,6 +33,7 @@
 <!-- Body-klass för WordPress-funktioner -->
 
 <body <?php body_class(); ?>>
+
     <!-- Inkludera body-elementet i WordPress -->
     <?php wp_body_open(); ?>
 
@@ -113,8 +114,25 @@
             <?php elseif (has_header_image()): ?>
                 <!-- Bild för andra sidor -->
                 <img class="hero-image" src="<?= get_header_image(); ?>">
+
                 <!-- Rubrik för andra sidor -->
-                <h1><?php the_title(); ?></h1>
+                <?php if (is_page()): ?>
+                    <!-- Visa sidans titel om det är en huvudsida -->
+                    <h1><?php echo get_the_title(); ?></h1>
+
+                <?php elseif (is_singular("post")): ?>
+                    <!-- Visa inläggstiteln om det är en specifik nyhet -->
+                    <h1><?php echo get_the_title(); ?></h1>
+
+                <?php elseif (is_category()): ?>
+                    <!-- Visa kategorinamnet om det är en kategori -->
+                    <h1><?php echo single_cat_title(); ?></h1>
+                    
+                <?php elseif (is_search()): ?>
+                    <!-- Visa sökresultatrubriken -->
+                    <h1>Sökresultat för: "<?php echo get_search_query(); ?>"</h1>
+                <?php endif; ?>
+
             <?php endif; ?>
 
         </div>
