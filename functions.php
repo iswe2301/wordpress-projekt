@@ -27,6 +27,26 @@ function aurora_widget_init()
         "before_title"  => "<h3>",
         "after_title"   => "</h3>",
     ));
+
+    // Widget för puff i header
+    register_sidebar(array(
+        "name"          => "Puff i header",
+        "id"            => "header-puff",
+        "before_widget" => "",
+        "after_widget"  => "",
+        "before_title"  => "<h3>",
+        "after_title"   => "</h3>",
+    ));
+
+    // Widget för puff i sidebar
+    register_sidebar(array(
+        "name"          => "Puff i sidebar",
+        "id"            => "sidebar-puff",
+        "before_widget" => "<div class='widget'>",
+        "after_widget"  => "</div>",
+        "before_title"  => "<h3>",
+        "after_title"   => "</h3>",
+    ));
 }
 
 // Inaktivera blockeditorn för widgetar
