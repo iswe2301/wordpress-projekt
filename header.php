@@ -6,7 +6,7 @@
     <!-- Dynamisk charset och titel -->
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php bloginfo("name"); ?><?php wp_title("|", true, "left"); ?></title>
+    <title><?php wp_title("|", true, "right"); ?><?php bloginfo("name"); ?></title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="<?= get_bloginfo("stylesheet_url"); ?>">

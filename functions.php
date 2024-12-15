@@ -75,3 +75,6 @@ function remove_menus()
 {
     remove_menu_page("edit-comments.php");
 }
+
+// Aktivera stöd för dynamisk titel
+add_theme_support("title-tag");
