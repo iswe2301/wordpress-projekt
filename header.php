@@ -39,10 +39,15 @@
 
     <!-- Header -->
     <header>
-        <!-- Puff ovanför navigationen -->
-        <div class="header-puff" id="header-puff">
-            <p id="animated-text">Upptäck våra nya vintererbjudanden! Just nu 10 % rabatt på utvalda boenden och upplevelser.</p>
-        </div>
+
+        <!-- Kontrollera om det finns ett aktivt widget-område -->
+        <?php if (is_active_sidebar("header-puff")) { ?>
+            <div class="header-puff" id="header-puff">
+                <!-- Visa puff-widget för header -->
+                <?php dynamic_sidebar("header-puff"); ?>
+            </div>
+        <?php } ?>
+
         <div class="header-container">
             <div class="logo">
                 <a href="<?= get_home_url(); ?>" aria-label="Gå till startsidan">
@@ -127,7 +132,7 @@
                 <?php elseif (is_category()): ?>
                     <!-- Visa kategorinamnet om det är en kategori -->
                     <h1><?php echo single_cat_title(); ?></h1>
-                    
+
                 <?php elseif (is_search()): ?>
                     <!-- Visa sökresultatrubriken -->
                     <h1>Sökresultat för: "<?php echo get_search_query(); ?>"</h1>
