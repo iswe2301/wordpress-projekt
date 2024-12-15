@@ -31,3 +31,17 @@ function aurora_widget_init()
 
 // Inaktivera blockeditorn för widgetar
 add_filter("use_widgets_block_editor", "__return_false");
+
+// Anpassa headerbild
+$args = array(
+    "default-image" => get_template_directory_uri() . "/img/hero.jpg",
+    "width" => 1920,
+    "height" => 1080,
+    "uploads" => true, // Ladda upp egna bilder
+    "flex-height" => true, // Dynamisk höjd
+    "flex-width" => true, // Dynamisk bredd
+    "video" => true, // Aktivera stöd för video
+);
+
+// Aktivera stöd för dynamisk headerbild
+add_theme_support("custom-header", $args);
