@@ -47,6 +47,16 @@ function aurora_widget_init()
         "before_title"  => "<h3>",
         "after_title"   => "</h3>",
     ));
+
+    // Widget för footer
+    register_sidebar(array(
+        "name"          => "Footer Widget",
+        "id"            => "footer-widget",
+        "before_widget" => "<div class='footer-widget'>",
+        "after_widget"  => "</div>",
+        "before_title"  => "<h2>",
+        "after_title"   => "</h2>",
+    ));
 }
 
 // Inaktivera blockeditorn för widgetar

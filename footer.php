@@ -42,6 +42,13 @@
         <a href="https://www.facebook.com" aria-label="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://www.tiktok.com" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
     </div>
+    <div class="footer-lang">
+        <!-- Kontrollera om det finns ett aktivt widget-område -->
+        <?php if (is_active_sidebar("footer-widget")) { ?>
+            <!-- Visa widget -->
+            <?php dynamic_sidebar("footer-widget"); ?>
+        <?php } ?>
+    </div>
     <div class="footer-bottom">
         <!-- Hämta årtal dynamiskt -->
         <p>&copy; <?= date("Y"); ?> AurorAdventures</p>
