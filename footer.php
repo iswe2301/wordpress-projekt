@@ -29,7 +29,8 @@
             <ul>
                 <li><i class="fas fa-phone"></i> <a href="tel:+46123456789">012-345 67 89</a></li>
                 <li><i class="fas fa-envelope"></i> <a href="mailto:info@auroradventures.com">info@auroradventures.com</a></li>
-                <li><i class="fas fa-comments"></i> <a href="<?= get_permalink(get_page_by_path("kontakt")->ID); ?>">Skicka meddelande</a></li>
+                <li><i class="fas fa-comments"></i> <a href="<?= get_permalink(get_page_by_path("kontakt")->ID) . '#contact-form'; ?>">Skicka meddelande</a></li>
+                <li><i class="fas fa-question-circle"></i> <a href="<?= get_permalink(get_page_by_path("kontakt")->ID) . '#sp-ea-141'; ?>">Vanliga frågor</a></li>
             </ul>
         </div>
     </div>
