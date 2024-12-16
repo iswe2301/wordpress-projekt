@@ -8,6 +8,7 @@
             $args = array(
                 "category_name" => "nyheter", // Kategori
                 "posts_per_page" => 5, // Antal inlägg
+                "offset" => 3 // Hoppa över de tre senaste inläggen
             );
 
             // Skapa en ny fråga med argumenten
