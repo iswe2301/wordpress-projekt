@@ -42,10 +42,10 @@
             <!-- Länk till kategorin -->
             <a href="<?= $category_link; ?>">
                 <div class="image-container">
-                    <!-- Kontrollera om det finns utvald bild på sidan och visa -->
-                    <?php if (has_post_thumbnail($boende_page->ID)) { ?>
-                        <img class="side-image" src="<?= get_the_post_thumbnail_url($boende_page->ID, 'thumbnail'); ?>" alt="<?= $boende_page->post_title; ?>">
-                    <?php } ?>
+                    <?php
+                    // Kontrollera om det finns en bildslider och visa den
+                    echo do_shortcode('[smartslider3 slider="2"]');
+                    ?>
                     <?php
                     // Hämta den anpassade rubriken från anpassat fält
                     $hero_title = get_post_meta($boende_page->ID, "hero_title", true);
@@ -71,10 +71,10 @@
             <!-- Länk till kategorin -->
             <a href="<?= $category_link; ?>">
                 <div class="image-container">
-                    <!-- Kontrollera om det finns utvald bild på sidan och visa -->
-                    <?php if (has_post_thumbnail($upplevelser_page->ID)) { ?>
-                        <img class="side-image" src="<?= get_the_post_thumbnail_url($upplevelser_page->ID, 'thumbnail'); ?>" alt="<?= $upplevelser_page->post_title; ?>">
-                    <?php } ?>
+                    <?php
+                    // Kontrollera om det finns en bildslider och visa den
+                    echo do_shortcode('[smartslider3 slider="3"]');
+                    ?>
                     <?php
                     // Hämta den anpassade rubriken från anpassat fält
                     $hero_title = get_post_meta($upplevelser_page->ID, "hero_title", true);
