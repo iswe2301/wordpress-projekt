@@ -137,11 +137,15 @@
                 ?>
                 <!-- Kontrollera om sidan har en utvald bild eller custom header-bild -->
                 <?php if (has_post_thumbnail($id)): ?>
+                    <!-- Hämta alt-text från utvald bild -->
+                    <?php $alt = get_post_meta(get_post_thumbnail_id($id), '_wp_attachment_image_alt', true); ?>
                     <!-- Utvald bild används som header-bild -->
-                    <img class="hero-image" src="<?= get_the_post_thumbnail_url($id); ?>">
-                <?php elseif (has_header_image()): ?>
-                    <!-- Använd custom header-bild som fallback -->
-                    <img class="hero-image" src="<?= get_header_image(); ?>">
+                    <img class="hero-image" src="<?= get_the_post_thumbnail_url($id); ?>" alt="<?= $alt; ?>">
+
+                    <?php elseif (has_header_image()): ?>
+                    <!-- Hämta alt-text från custom header-bild -->
+                    <?php $alt = get_post_meta(get_post_thumbnail_id(get_custom_header()->attachment_id), '_wp_attachment_image_alt', true); ?>
+                    <img class="hero-image" src="<?= get_header_image(); ?>" alt="<?= $alt; ?>">
                 <?php endif; ?>
 
                 <?php
