@@ -111,6 +111,7 @@ ul li {
     list-style-type: disc;
     margin-bottom: 1rem;
     list-style-position: inside;
+    padding-left: 2rem;
 }
 
 /* Container för innehållet */
@@ -218,6 +219,7 @@ header nav ul {
 header nav ul li {
     margin: 0 1rem;
     list-style-type: none;
+    padding-left: 0;
 }
 
 header nav ul li a {
@@ -230,7 +232,7 @@ header nav ul li a {
 
 header nav ul li a.active,
 header nav ul li a:hover,
-.current {
+.current-menu-item a {
     color: #F4D35E;
     text-decoration: none;
 }
@@ -375,7 +377,8 @@ header nav ul li a:hover,
 }
 
 /* Knappar */
-.btn {
+.btn,
+.contact-form input[type="submit"] {
     background-color: #354D73;
     color: white;
     text-decoration: none;
@@ -386,7 +389,8 @@ header nav ul li a:hover,
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.btn:hover {
+.btn:hover,
+.contact-form input[type="submit"]:hover {
     background-color: #468B63;
     transform: scale(1.02);
     color: #F4D35E;
@@ -472,6 +476,7 @@ img {
 .mobile-menu ul li {
     margin: 1rem 0;
     list-style-type: none;
+    padding-left: 0;
 }
 
 .mobile-menu ul li a {
@@ -925,22 +930,20 @@ img {
 
 /* Kontaktformulär */
 .contact-form {
-    max-width: 600px;
-    margin: 3rem auto 2rem auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 2rem auto 0 auto;
 }
 
-.contact-form button {
+.contact-form input[type="submit"] {
     border: none;
     width: 50%;
     margin-right: 50%;
     cursor: pointer;
 }
 
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
+.contact-form label {
     display: block;
     font-size: 1.6rem;
     font-weight: 600;
@@ -950,8 +953,8 @@ img {
     padding-left: 2px;
 }
 
-.form-group input,
-.form-group textarea {
+.contact-form input,
+.contact-form textarea {
     width: 100%;
     padding: 1rem;
     font-size: 1.4rem;
@@ -961,9 +964,13 @@ img {
     font-family: "Poppins", sans-serif;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.contact-form input:focus,
+.contact-form textarea:focus {
     outline-color: #F4D35E;
+}
+
+.contact-form p {
+    margin: 0;
 }
 
 /* Styling för karta */
@@ -986,7 +993,7 @@ img {
 
 /* Responsivitet för kontaktformulär */
 @media (max-width: 600px) {
-    .contact-form button {
+    .contact-form input[type="submit"] {
         width: 100%;
         margin-right: 0;
     }
@@ -1031,6 +1038,7 @@ footer {
 .footer-section ul li {
     margin: 1.5rem 0;
     list-style-type: none;
+    padding-left: 0;
 }
 
 .footer-section ul li a {
