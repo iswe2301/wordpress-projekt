@@ -18,10 +18,17 @@
         </section>
 
         <?php
+
+        // Skapa argument för att hämta alla inlägg från kategorin "boende"
+        $args = array("category_name" => "boende", "posts_per_page" => -1);
+
+        // Skapa en ny fråga med argumenten
+        $boende_query = new WP_Query($args);
+
         // Kontrollera om det finns inlägg och loopa igenom dem
-        if (have_posts()) {
-            while (have_posts()) {
-                the_post();
+        if ($boende_query->have_posts()) {
+            while ($boende_query->have_posts()) {
+                $boende_query->the_post();
         ?>
                 <div class="content-item">
                     <!-- Kontrollera om det finns utvald bild och visa -->
@@ -45,6 +52,8 @@
                 <div class="divider"></div>
         <?php
             }
+            // Återställ postdata
+            wp_reset_postdata();
         }
         ?>
     </div>

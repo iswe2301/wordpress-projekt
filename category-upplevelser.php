@@ -18,10 +18,17 @@
         </section>
 
         <?php
+
+        // Skapa argument för att hämta alla inlägg från kategorin "upplevelser"
+        $args = array("category_name" => "upplevelser", "posts_per_page" => -1);
+
+        // Skapa en ny fråga med argumenten
+        $upplevelser_query = new WP_Query($args);
+
         // Kontrollera om det finns inlägg i kategorin och loopa igenom dem
-        if (have_posts()) {
-            while (have_posts()) {
-                the_post();
+        if ($upplevelser_query->have_posts()) {
+            while ($upplevelser_query->have_posts()) {
+                $upplevelser_query->the_post();
         ?>
                 <div class="content-item">
                     <!-- Kontrollera om det finns utvald bild och visa -->
@@ -45,6 +52,8 @@
                 <div class="divider"></div>
         <?php
             }
+            // Återställ postdata
+            wp_reset_postdata();
         }
         ?>
     </div>
