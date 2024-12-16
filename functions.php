@@ -111,7 +111,7 @@ add_theme_support("title-tag");
 
 // Lägg till filter - skapa div runt formulär
 add_filter("wpcf7_form_elements", function ($content) {
-    // Omge formuläret med en div med ID
-    $content = "<div class='contact-form'>" . $content . "</div>";
+    // Omge formuläret med en div med en klass och ett ID
+    $content = "<div class='contact-form' id='contact-form'>" . $content . "</div>";
     return $content;
 });
