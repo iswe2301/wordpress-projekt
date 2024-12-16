@@ -32,6 +32,11 @@
                     <div class="content-details">
                         <!-- Skriv ut dynamisk titel -->
                         <h3><?php the_title(); ?></h3>
+                        <!-- Skriv ut metadata -->
+                        <div class="meta">
+                            <span class="date"><?php the_time("Y-m-d \k\l. H:i"); ?></span> |
+                            <span class="author"><?php the_author(); ?></span>
+                        </div>
                         <!-- Skriv ut excerpt -->
                         <?php the_excerpt(); ?>
                         <div class="content-button">
@@ -47,6 +52,11 @@
             }
         }
         ?>
+        <!-- Pagination -->
+        <div id="pagination">
+            <div><?php next_posts_link("Äldre inlägg"); ?></div>
+            <div><?php previous_posts_link("Nyare inlägg"); ?></div>
+        </div>
     </div>
 
     <!-- Inkludera generell sidebar -->
