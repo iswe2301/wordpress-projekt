@@ -142,7 +142,7 @@
                     <!-- Utvald bild används som header-bild -->
                     <img class="hero-image" src="<?= get_the_post_thumbnail_url($id); ?>" alt="<?= $alt; ?>">
 
-                    <?php elseif (has_header_image()): ?>
+                <?php elseif (has_header_image()): ?>
                     <!-- Hämta alt-text från custom header-bild -->
                     <?php $alt = get_post_meta(get_post_thumbnail_id(get_custom_header()->attachment_id), '_wp_attachment_image_alt', true); ?>
                     <img class="hero-image" src="<?= get_header_image(); ?>" alt="<?= $alt; ?>">
@@ -187,3 +187,10 @@
 
     <!-- Main-container med huvudinnehållet -->
     <main class="container">
+
+        <!-- Breadcrumbs, visa på alla sidor utom startsidan -->
+        <?php if (!is_front_page()) : ?>
+            <div class="breadcrumbs">
+                <?php if (function_exists("rank_math_the_breadcrumbs")) rank_math_the_breadcrumbs(); ?>
+            </div>
+        <?php endif; ?>
