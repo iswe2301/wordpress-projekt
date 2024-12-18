@@ -89,18 +89,28 @@ p {
 }
 
 a {
-    color: #3F7D59;
+    color: #354D73;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 a:hover {
-    color: #354D73;
+    color: #3F7D59;
     transition: color 0.3s;
     text-decoration: underline;
     text-underline-offset: 0.5rem;
 }
 
+/* Breadcumbs */
+.breadcrumbs {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    max-width: 1200px;
+    font-size: 1.4rem;
+}
+
+/* Styling för listor */
 ul {
     padding-left: 20px;
     margin: 0;
@@ -1133,4 +1143,42 @@ footer {
     margin: 0;
     color: white;
     max-width: 100%;
+}
+
+/* Wordpress recensioner */
+.glsr-default .glsr-review {
+    justify-content: center;
+    background-color: white;
+    padding: 2rem;
+    flex: 0 1 calc(50% - 2rem); /* Två recensioner per rad */
+    margin: 1rem;
+    box-sizing: border-box;
+}
+
+.glsr-default .glsr-review-author {
+    padding-top: 2rem;
+}
+
+.glsr-reviews,
+.glsr-reviews-wrap {
+    display: flex !important;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0 !important;
+    grid-gap: 0 !important;
+}
+
+.glsr-default .glsr-review-date {
+    flex: 0 !important;
+}
+
+/* Responsivitet för recensioner */
+@media (max-width: 768px) {
+    .glsr-default .glsr-review {
+        flex: 0 1 100%;
+    }
+    .glsr-reviews,
+    .glsr-reviews-wrap {
+        flex-direction: column;
+    }
 }
