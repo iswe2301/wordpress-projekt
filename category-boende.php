@@ -42,8 +42,8 @@
                         <!-- Skriv ut excerpt -->
                         <?php the_content(); ?>
                         <div class="content-button">
-                            <!-- Länk till inlägget -->
-                            <a href="<?php the_permalink(); ?>" class="btn">Boka nu</a>
+                            <!-- Länk till boka-sida -->
+                            <a href="<?= get_permalink(get_page_by_path("boka")); ?>" class="btn">Boka nu</a>
                         </div>
                     </div>
                 </div>

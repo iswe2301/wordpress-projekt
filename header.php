@@ -6,7 +6,6 @@
     <!-- Dynamisk charset och titel -->
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php wp_title("|", true, "right"); ?><?php bloginfo("name"); ?></title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="<?= get_bloginfo("stylesheet_url"); ?>">
@@ -98,20 +97,20 @@
 
                     <!-- Play/Pause-knapp för videon -->
                     <button id="video-control" class="video-control" aria-label="Pausa video">
-                        <i class="fas fa-pause"></i>
+                        <em class="fas fa-pause"></em>
                     </button>
                 <?php endif; ?>
 
                 <!-- Dynamisk slogan för startsidan -->
                 <p><?= esc_html(get_theme_mod("hero_text", "Oförglömliga upplevelser i en arktisk miljö")); ?></p>
 
-                <!-- Knapp med länk till upplevelsesidan -->
-                <a href="<?= get_category_link(get_category_by_slug("upplevelser")->term_id); ?>" class="btn bg-btn">BOKA DITT ÄVENTYR <i class="fas fa-arrow-right"></i></a>
+                <!-- Knapp med länk till boka-sidan -->
+                <a href="<?= get_permalink(get_page_by_path("boka")); ?>" class="btn bg-btn">BOKA DITT ÄVENTYR <em class="fas fa-arrow-right"></em></a>
 
                 <!-- Scrolla ner-knapp -->
                 <div class="scroll-down">
                     <a href="#intro" aria-label="Scrolla ner för att läsa mer">
-                        <i class="fas fa-chevron-down"></i>
+                        <em class="fas fa-chevron-down"></em>
                     </a>
                 </div>
 

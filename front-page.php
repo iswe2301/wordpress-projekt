@@ -14,7 +14,7 @@ get_header();
         ?>
                 <!-- Skriv ut titel och innehåll -->
                 <h1><?php the_title(); ?></h1>
-                <p><?php the_content(); ?></p>
+                <?php the_content(); ?>
                 <div class="divider"></div>
         <?php
             }
@@ -59,8 +59,8 @@ get_header();
                     <!-- Skriv ut excerpt -->
                     <?php the_excerpt(); ?>
                     <div class="card-buttons">
-                        <!-- Länka till kategorin -->
-                        <a href="<?php echo $category_link; ?>" class="btn btn-blue">Boka nu</a>
+                        <!-- Länka till boka-sidan och kategorin -->
+                        <a href="<?= get_permalink(get_page_by_path("boka")); ?>" class="btn btn-blue">Boka nu</a>
                         <a href="<?php echo $category_link; ?>" class="btn btn-green">Läs mer</a>
                     </div>
                 </div>
@@ -98,10 +98,10 @@ if ($about_page) {
 <?php
 // Kontrollera om widget-området finns och skriv ut innehåll
 if (is_active_sidebar("front-page-puff")) { ?>
-    <section class="highlight">
-            <!-- Hämta widget -->
-            <?php dynamic_sidebar("front-page-puff"); ?>
-    </section>
+    <div class="highlight">
+        <!-- Hämta widget -->
+        <?php dynamic_sidebar("front-page-puff"); ?>
+    </div>
 <?php } ?>
 
 <!-- Divider för att skilja sektioner -->
