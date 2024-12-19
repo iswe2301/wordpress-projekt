@@ -243,7 +243,7 @@ header nav ul li a {
 header nav ul li a.active,
 header nav ul li a:hover,
 .current-menu-item a {
-    color: #F4D35E;
+    color: #F4D35E !important;
     text-decoration: none;
 }
 
@@ -1223,4 +1223,9 @@ footer {
 
 .tnp-widget input[type="email"]:focus {
     outline-color: #F4D35E;
+}
+
+/* Styling för leaflet-karta */
+.leaflet-map {
+    z-index: 1;
 }
