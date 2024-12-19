@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         videoControl.style.display = "flex";
 
         // Hämta ikonen i knappen
-        const icon = videoControl.querySelector("i");
+        const icon = videoControl.querySelector("em");
 
         // Lägg till eventlyssnare vid klick på play/pause-knappen
         videoControl.addEventListener("click", () => {
