@@ -348,7 +348,7 @@ header nav ul li a:hover,
     text-transform: uppercase;
 }
 
-.hero i {
+.hero em {
     margin-left: 0.5rem;
 }
 
@@ -365,12 +365,13 @@ header nav ul li a:hover,
     z-index: 2;
 }
 
-.scroll-down i {
+.scroll-down a {
     color: #ffffff;
 }
 
-.scroll-down:hover {
+.scroll-down a:hover {
     opacity: 0.7;
+    color: white;
 }
 
 /* Animation för pilen */
@@ -673,13 +674,14 @@ img {
 .about p {
     position: relative;
     font-size: 1.6rem;
-    margin: 0 auto;
+    margin: 2.5rem auto;
     max-width: 800px;
     padding: 2rem;
     color: #2b3d5c;
     background-color: rgba(255, 255, 255, 0.6);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 2;
+    text-align: center !important;
 }
 
 .btn-pink {
@@ -1099,14 +1101,26 @@ footer {
     height: 4rem;
 }
 
-.footer-search button i {
+.footer-search button .fa-search {
     color: #3F7D59;
     transition: 0.3s;
 }
 
-.footer-search button i:hover {
+.footer-search button .fa-search:hover {
     transition: transform 0.3s ease;
     transform: scale(1.1);
+}
+
+/* Skärmläsartext för labels i sökformulär och nyhetsbrev */
+.screen-reader-text,
+.tnp-field label {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    /* Döljer texten visuellt */
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .footer-lang {
@@ -1126,7 +1140,7 @@ footer {
     transition: color 0.3s;
 }
 
-.footer-social i:hover {
+.footer-social em:hover {
     color: #F4D35E;
 
 }
@@ -1150,7 +1164,8 @@ footer {
     justify-content: center;
     background-color: white;
     padding: 2rem;
-    flex: 0 1 calc(50% - 2rem); /* Två recensioner per rad */
+    flex: 0 1 calc(50% - 2rem);
+    /* Två recensioner per rad */
     margin: 1rem;
     box-sizing: border-box;
 }
@@ -1177,6 +1192,7 @@ footer {
     .glsr-default .glsr-review {
         flex: 0 1 100%;
     }
+
     .glsr-reviews,
     .glsr-reviews-wrap {
         flex-direction: column;
