@@ -90,8 +90,15 @@
                 <?php if (has_header_video()): ?>
 
                     <!-- Video för startsidan -->
+                    <?php
+                    $header_video = get_header_video_url(); // Hämta URL för video
+                    $webm_video = str_replace('.mp4', '.webm', $header_video); // Byt ut filändelse till .webm
+                    ?>
                     <video class="hero-video" autoplay muted loop playsinline>
-                        <source src="<?= get_header_video_url(); ?>" type="video/mp4">
+                        <!-- WebM-video för moderna webbläsare -->
+                        <source src="<?= $webm_video; ?>" type="video/webm">
+                        <!-- Fallback för äldre webbläsare -->
+                        <source src="<?= $header_video; ?>" type="video/mp4">
                         Din webbläsare stöder inte videouppspelning.
                     </video>
 

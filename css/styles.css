@@ -388,6 +388,10 @@ header nav ul li a:hover,
 }
 
 /* Knappar */
+button {
+    cursor: pointer;
+}
+
 .btn,
 .contact-form input[type="submit"] {
     background-color: #354D73;
